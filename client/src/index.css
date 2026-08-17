@@ -1,6 +1,66 @@
-@tailwind base;@tailwind components;@tailwind utilities;
-* { font-family: "Geist", system-ui, sans-serif; }
-.display { font-family: "Syne", sans-serif; }
-.serif { font-family: "Instrument Serif", serif; }
-html { scroll-behavior: smooth; }
-body { overflow-x: hidden; }
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Geist", system-ui, sans-serif;
+  --font-display: "Syne", sans-serif;
+  --font-serif: "Instrument Serif", serif;
+  --color-jint-dark: #0A0A0A;
+  --color-jint-card: #141414;
+  --color-jint-light: #F5F3EF;
+  --color-jint-amber: #FFB400;
+}
+
+* {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.display {
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+}
+
+.serif {
+  font-family: var(--font-serif);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #FFB400 #0A0A0A;
+}
+
+body {
+  overflow-x: hidden;
+  background: var(--color-jint-dark);
+  color: white;
+  transition: background 0.4s cubic-bezier(0.16,1,0.3,1), color 0.4s ease;
+}
+
+/* Light mode override when you toggle class on html */
+html.light body {
+  background: var(--color-jint-light);
+  color: #0A0A0A;
+}
+
+::selection {
+  background: #FFB400;
+  color: black;
+}
+
+/* Hide scrollbar for marquees but keep scroll */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Smooth reveal utilities for your flow */
+@keyframes marquee {
+  from { transform: translateX(0) }
+  to { transform: translateX(-50%) }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px) }
+  to { opacity: 1; transform: translateY(0) }
+}
