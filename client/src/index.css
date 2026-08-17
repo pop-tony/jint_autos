@@ -1,0 +1,6 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+* { font-family: "Geist", system-ui, sans-serif; }
+.display { font-family: "Syne", sans-serif; }
+.serif { font-family: "Instrument Serif", serif; }
+html { scroll-behavior: smooth; }
+body { overflow-x: hidden; }
